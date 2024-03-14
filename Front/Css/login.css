@@ -1,0 +1,35 @@
+.LoginForm {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 25%;
+    height: 50%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 10%;
+    background-color: #ffffff;
+}
+
+header {
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+body {
+    background-color: #e8e8e8;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 15vh;
+    left: 0;
+    z-index: -1;
+}
