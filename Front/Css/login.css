@@ -50,5 +50,9 @@ body {
 }
 
 .LoginButton:active {
-    background-color: #6a6a6a;
+    background-color: #383838;
+}
+
+.LoginForm>* {
+    margin-bottom: 10px;
 }

@@ -1,0 +1,54 @@
+.RegForm {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 25%;
+    padding-top: 5vh;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 10%;
+    background-color: #ffffff;
+}
+
+header {
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+body {
+    background-color: #e8e8e8;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 15vh;
+    left: 0;
+    z-index: -1;
+}
+
+.RegButton {
+    background-color: #000000;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.RegButton:hover {
+    background-color: #383838;
+}
+
+.RegButton:active {
+    background-color: #6a6a6a;
+}
