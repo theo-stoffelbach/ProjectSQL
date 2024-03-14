@@ -3,7 +3,8 @@
     flex-direction: column;
     border-radius: 20px;
     width: 25%;
-    height: 50%;
+    padding-top: 5vh;
+    height: auto;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -32,4 +33,22 @@ body {
     top: 15vh;
     left: 0;
     z-index: -1;
+}
+
+.LoginButton {
+    background-color: #000000;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.LoginButton:hover {
+    background-color: #383838;
+}
+
+.LoginButton:active {
+    background-color: #6a6a6a;
 }
