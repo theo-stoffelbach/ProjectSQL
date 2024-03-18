@@ -1,7 +1,6 @@
 import express from 'express';
-import {
-    readAllRestaurants
-} from "../controller/restaurantController.js";
+import {readAllRestaurants, readByIdRestaurant} from "../controller/restaurantController.js";
+
 const restaurantRouter = express.Router();
 
 restaurantRouter.get('/test', (req, res) => {
@@ -9,6 +8,7 @@ restaurantRouter.get('/test', (req, res) => {
 });
 
 restaurantRouter.get('/', readAllRestaurants);
+restaurantRouter.get('/e/:id', readByIdRestaurant);
 // restaurantRouter.post('/register', registerController);
 
 

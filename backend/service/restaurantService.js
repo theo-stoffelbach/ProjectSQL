@@ -27,5 +27,5 @@ const selectByIdRestaurant = (id_restaurant) => {
     });
 };
 
-export {selectAllRestaurants};
+export {selectAllRestaurants, selectByIdRestaurant};
 
