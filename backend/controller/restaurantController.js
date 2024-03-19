@@ -1,5 +1,6 @@
 import {selectAllRestaurants, selectByIdRestaurant} from "../service/restaurantService.js";
 import {selectAllMealByIdRestaurant} from "../service/mealService.js";
+import {ReadCommentByIdRestaurant} from "../service/commentService.js";
 
 const readAllRestaurants = (req, res) => {
 
@@ -23,12 +24,24 @@ const readByIdRestaurant = (req, res) => {
     selectByIdRestaurant(id_restaurant)
         .then((dataRestaurant) => {
             result.restaurant = dataRestaurant
-                
+
             selectAllMealByIdRestaurant(id_restaurant)
                 .then(dataMeal => {
                     result.meals = dataMeal;
-                    console.log(result);
-                    res.status(200).send(result);
+
+                    ReadCommentByIdRestaurant(id_restaurant)
+                        .then((dataRestaurants) => {
+                            console.log(dataRestaurants);
+                            if (dataRestaurants === undefined) {
+                                res.status(401).send('Identifiants incorrects');
+                            } else {
+                                result.comments = dataRestaurants;
+                                res.status(200).send(result);
+                            }
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
                 })
         })
         .catch((error) => {

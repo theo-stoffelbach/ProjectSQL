@@ -20,7 +20,7 @@ db.getConnection((err, connection) => {
             }
             console.log('Client Ok');
         });
-    }catch (e) {
+    } catch (e) {
         console.log('Client Ko');
     }
 
@@ -31,18 +31,18 @@ db.getConnection((err, connection) => {
             }
             console.log('commands Ok');
         });
-    }catch (e) {
+    } catch (e) {
         console.log('commands Ko');
     }
 
     try {
-        connection.query("CREATE TABLE IF NOT EXISTS comments (id_comment INT AUTO_INCREMENT PRIMARY KEY, id_command INT, id_client INT, comment_text VARCHAR(255), FOREIGN KEY (id_command) REFERENCES commands(id_command), FOREIGN KEY (id_client) REFERENCES clients(id))", (err, result) => {
+        connection.query("CREATE TABLE IF NOT EXISTS comments (id_comment INT AUTO_INCREMENT PRIMARY KEY, id_command INT, id_client INT, comment_text VARCHAR(255),id_restaurant INT, FOREIGN KEY (id_command) REFERENCES commands(id_command), FOREIGN KEY (id_client) REFERENCES clients(id), FOREIGN KEY (id_restaurant) REFERENCES restaurant(id_restaurant))", (err, result) => {
             if (err) {
                 throw err
             }
             console.log('comments Ok');
         });
-    }catch (e) {
+    } catch (e) {
         console.log('comments Ko');
     }
 
@@ -54,7 +54,7 @@ db.getConnection((err, connection) => {
             }
             console.log('List_meal Ok');
         });
-    }catch (e) {
+    } catch (e) {
         console.log('List_meal Ko');
     }
 
@@ -65,7 +65,7 @@ db.getConnection((err, connection) => {
             }
             console.log('Restaurant Ok');
         });
-    }catch (e) {
+    } catch (e) {
         console.log('Restaurant Ko');
     }
 
@@ -76,7 +76,7 @@ db.getConnection((err, connection) => {
             }
             console.log('Driver Ok');
         });
-    }catch (e) {
+    } catch (e) {
         console.log('Driver Ko');
     }
 
@@ -87,13 +87,11 @@ db.getConnection((err, connection) => {
             }
             console.log('Meal Ok');
         });
-    }catch (e) {
+    } catch (e) {
         console.log('Meal Ko');
     }
 
 
-
-
 });
 
-export { db };
+export {db};
