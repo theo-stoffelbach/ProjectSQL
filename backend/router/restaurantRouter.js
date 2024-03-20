@@ -8,7 +8,7 @@ restaurantRouter.get('/test', (req, res) => {
 });
 
 restaurantRouter.get('/', readAllRestaurants);
-restaurantRouter.get('/e/:id', readByIdRestaurant);
+restaurantRouter.get('/:id', readByIdRestaurant);
 // restaurantRouter.post('/register', registerController);
 
 
