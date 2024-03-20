@@ -1,0 +1,10 @@
+.Ingredients {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    align-items: stretch;
+    width: 50%;
+    height: 150px;
+    text-decoration: none;
+    color: black;
+}
