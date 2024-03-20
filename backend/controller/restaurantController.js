@@ -23,7 +23,7 @@ const readByIdRestaurant = (req, res) => {
     console.log(id_restaurant)
     selectByIdRestaurant(id_restaurant)
         .then((dataRestaurant) => {
-            result.restaurant = dataRestaurant
+            result.restaurant = dataRestaurant[0]
 
             selectAllMealByIdRestaurant(id_restaurant)
                 .then(dataMeal => {

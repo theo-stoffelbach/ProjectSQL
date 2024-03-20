@@ -3,15 +3,22 @@ import {commandSelectById} from "../service/commandService.js";
 
 
 const loginController = (req, res) => {
+    console.log("c'est la sauce")
     const username = req.body.username;
     const password = req.body.password;
 
+    console.log("username : ", username, "password : ", password);
+
     selectUserAnUser({username: username, password: password})
         .then((test) => {
-            if (test === undefined) {
-                res.status(401).send('Identifiants incorrects');
+            console.log(test, 'test')
+            if (test === undefined || test === null) {
+                res.status(401).send('User not found');
             } else {
-                res.status(200).send('Identifiants corrects');
+                if (test.password !== password) {
+                    res.status(401).send('Identifiants incorrects');
+                }
+                res.status(200).send(test);
             }
         })
         .catch((error) => {
@@ -29,7 +36,7 @@ const registerController = (req, res) => {
             if (test === null) {
                 res.status(401).send('Error to create');
             } else {
-                res.status(200).send('Create user successfully');
+                res.status(200).send(test);
             }
         })
         .catch((error) => {

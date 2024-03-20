@@ -2,12 +2,15 @@
 import express from 'express';
 import {userRouter} from './router/userRoute.js';
 import {restaurantRouter} from './router/restaurantRouter.js';
+import cors from 'cors';
 // import { connectionDB } from './service/userService.js';
 
 const app = express()
 const PORT = 3000;
 
 // connectionDB();
+app.use(cors());
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 
