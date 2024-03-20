@@ -38,9 +38,9 @@ const createAnUser = (user) => {
                     db.query(sql, [user.username, user.password], (error, results) => {
                         if (error === null || error === undefined) {
                             console.log(results.insertId, 'results');
-                            reject(error);
+                            resolve(results.insertId);
                         } else {
-                            return results;
+                            reject(error);
                         }
                     });
                 } else {
@@ -52,7 +52,6 @@ const createAnUser = (user) => {
         );
     });
 };
-
 
 export {selectUserAnUser, createAnUser, selectUserAnUserById};
 
