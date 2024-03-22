@@ -1,25 +1,25 @@
 const readAllCommentByRestaurant = (req, res) => {
-
-}
-
-const createCommentInResaurant = (req, res) => {
-    const id_restaurant = req.params.id;
-    let result = {};
-    console.log(id_restaurant)
-    selectByIdRestaurant(id_restaurant)
-        .then((dataRestaurant) => {
-            result.restaurant = dataRestaurant
-
-            selectAllMealByIdRestaurant(id_restaurant)
-                .then(dataMeal => {
-                    result.meals = dataMeal;
-                    console.log(result);
-                    res.status(200).send(result);
-                })
+    commentSelectAll()
+        .then((dataComments) => {
+            if (dataComments === undefined) {
+                res.status(401).send('Identifiants incorrects');
+            } else {
+                res.status(200).send({dataComments});
+            }
         })
         .catch((error) => {
             console.log(error);
         });
+}
+
+const createCommentInResaurant = (req, res) => {
+    const id_restaurant = req.params.id;
+    const commentText = req.params.id;
+    const id_user = req.params.id;
+
+    console.log(id_restaurant)
+
+
 }
 
 export {readAllRestaurants, readByIdRestaurant};

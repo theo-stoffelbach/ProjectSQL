@@ -13,9 +13,9 @@ const ReadCommentByIdRestaurant = (IdRestaurant) => {
     });
 };
 
-const createAComment = (idClient, idCommand, comment, idRestaurant) => {
+const createAComment = (idCommand, idClient, comment, idRestaurant) => {
     return new Promise((resolve, reject) => {
-        const sql = 'INSERT INTO comments(id_command,id_comments,comment_text, id_restaurant) VALUES (?, ?, ?, ?)';
+        const sql = 'INSERT INTO comments(id_command,id_client,comment_text, id_restaurant) VALUES (?, ?, ?, ?)';
         db.query(sql, [idClient, idCommand, comment, idRestaurant], (error, results) => {
             if (error === null || error === undefined) {
                 console.log(results.insertId, 'results');

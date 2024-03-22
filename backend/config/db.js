@@ -14,7 +14,7 @@ db.getConnection((err, connection) => {
     console.log(' === Table Check === ');
 
     try {
-        connection.query("CREATE TABLE IF NOT EXISTS clients (id_clients INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255),password VARCHAR(255))", (err, result) => {
+        connection.query("CREATE TABLE IF NOT EXISTS clients (id_client INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255),password VARCHAR(255))", (err, result) => {
             if (err) {
                 throw err;
             }
@@ -25,7 +25,7 @@ db.getConnection((err, connection) => {
     }
 
     try {
-        connection.query("CREATE TABLE IF NOT EXISTS commands (id_command INT AUTO_INCREMENT PRIMARY KEY, id_client INT, id_driver INT, id_restaurant INT, id_list_meal INT, ordered_time INT, delivery_address VARCHAR(255), command_state VARCHAR(255), error_message VARCHAR(255), FOREIGN KEY (id_client) REFERENCES clients(id), FOREIGN KEY (id_driver) REFERENCES driver(id_driver), FOREIGN KEY (id_restaurant) REFERENCES restaurant(id_restaurant), FOREIGN KEY (id_list_meal) REFERENCES list_meal(id_list_meal))", (err, result) => {
+        connection.query("CREATE TABLE IF NOT EXISTS commands (id_command INT AUTO_INCREMENT PRIMARY KEY, id_client INT, id_driver INT, id_restaurant INT, id_list_meal INT, ordered_time INT, delivery_adress VARCHAR(255), command_state VARCHAR(255), error_message VARCHAR(255), FOREIGN KEY (id_client) REFERENCES clients(id), FOREIGN KEY (id_driver) REFERENCES driver(id_driver), FOREIGN KEY (id_restaurant) REFERENCES restaurant(id_restaurant), FOREIGN KEY (id_list_meal) REFERENCES list_meal(id_list_meal))", (err, result) => {
             if (err) {
                 throw err
             }
