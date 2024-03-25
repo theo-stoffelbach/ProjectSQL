@@ -8,7 +8,14 @@ const createCommand = (req, res) => {
     const adress = req.body.adress;
     const meals = req.body.meals;
 
-    
+    insertListMeals(meals, id_restaurant) // insert list of meals
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
     insertAnCommand(id_user, id_restaurant, adress)
         .then((data) => {
             insertDeliveryInCommand(1, id_user)

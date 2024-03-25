@@ -13,6 +13,4 @@ const insertListMeals = (meals, id_restaurant) => {
             }
         });
     });
-
-
 }
