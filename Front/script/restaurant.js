@@ -24,10 +24,8 @@ function createMealCard(meal, ingredients) {
 
 }
 
-
 const init = () => {
     const data = JSON.parse(localStorage.getItem('restaurant'));
-
 
     fetch('http://localhost:3000/api/restaurant/' + data.id)
         .then(response => response.json())
@@ -62,13 +60,7 @@ const addMealToList = (meal) => {
 //
 // console.log('test name' + JSON.parse(data).name);
 
-<<<<<<< Updated upstream
-init();
-
-
-
-
-document.getElementById('comment-form').addEventListener('submit', function(event) {
+document.getElementById('comment-form').addEventListener('submit', function (event) {
     event.preventDefault();
     const comment = document.getElementById('comment-input').value;
     fetch('http://localhost:3000/api/comment', {
@@ -76,25 +68,25 @@ document.getElementById('comment-form').addEventListener('submit', function(even
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
             id_comment: 1,
             id_command: 1,
             id_client: 1,
             comment_text: comment,
             id_restaurant: 1
-         })
+        })
     })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
 });
 
-router.post('/api/comment', function(req, res) {
+router.post('/api/comment', function (req, res) {
     commentService.addComment(req.body.comment)
-    .then(result => res.json(result))
-    .catch(error => res.status(500).json({ error: error.message }));
+        .then(result => res.json(result))
+        .catch(error => res.status(500).json({error: error.message}));
 });
-=======
+
 function printListLocalStorage() {
     const listCommand = JSON.parse(localStorage.getItem("mealsList"));
     console.log(listCommand)
@@ -157,4 +149,3 @@ passCommandButton.addEventListener("click", () => {
 
 resetLocalStorage();
 init();
->>>>>>> Stashed changes
