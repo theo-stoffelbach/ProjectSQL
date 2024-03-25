@@ -21,7 +21,6 @@ const init = () => {
 
     console.log(userId);
 
-
     fetch(`http://localhost:3000/api/user/profil/${userId}`)
         .then(response => {
             console.log(response);
@@ -46,21 +45,21 @@ const init = () => {
                 h1.textContent = `Restaurant: ${command.name}`;
                 commandeDiv.appendChild(h1);
 
-                const platP = document.createElement('p');
-                platP.textContent = `Plat: ${command.id_list_meal}`;
-                commandeDiv.appendChild(platP);
+                // const platP = document.createElement('p');
+                // platP.textContent = `Plat: ${command.id_list_meal}`;
+                // commandeDiv.appendChild(platP);
 
                 const prixP = document.createElement('p');
                 prixP.textContent = `Adresse: ${command.delivery_adress}`;
                 commandeDiv.appendChild(prixP);
 
-                const dateP = document.createElement('p');
-                dateP.textContent = `Date: ${command.ordered_time}`;
-                commandeDiv.appendChild(dateP);
+                // const dateP = document.createElement('p');
+                // dateP.textContent = `Date: ${command.ordered_time}`;
+                // commandeDiv.appendChild(dateP);
 
-                const etatP = document.createElement('p');
-                etatP.textContent = `Etat: ${command.command_state}`;
-                commandeDiv.appendChild(etatP);
+                // const etatP = document.createElement('p');
+                // etatP.textContent = `Etat: ${command.command_state}`;
+                // commandeDiv.appendChild(etatP);
 
 
                 historiqueDiv.appendChild(commandeDiv);

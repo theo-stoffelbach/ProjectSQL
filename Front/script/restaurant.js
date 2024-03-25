@@ -120,7 +120,7 @@ function submitCommand() {
     const listCommnad = JSON.parse(localStorage.getItem("mealsList"));
     const restaurant = JSON.parse(localStorage.getItem("restaurant"));
     const adressText = adressInput.value;
-    const userId = getCookieByName("userIdr");
+    const userId = getCookieByName("userId");
 
     
     console.log("userId : ", userId);

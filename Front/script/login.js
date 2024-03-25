@@ -30,7 +30,7 @@ const validateLoginForm = (e) => {
         .then(response => {
             createToken("userId", response.id_client, 1);
             createToken("username", response.name, 1);
-            window.location.href = "http://localhost:5500/Front/Html/HomePage.html";
+            window.location.href = "HomePage.html";
         })
         .catch(error => {
             console.log("error : ", error);
