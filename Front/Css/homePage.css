@@ -1,0 +1,34 @@
+.RestaurantList{
+    display: flex;
+   margin-top: 10vh;
+
+}
+
+.Resto1 {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background-color: chocolate;
+    border-radius: 20px;
+}
+
+.Resto1 img {
+    flex: 1;
+    object-fit: cover;
+}
+
+.Resto1 .details {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.Resto1 .details h1 {
+    margin: 0;
+}
+
+.Resto1 .details .contacts {
+    margin-bottom: 10px;
+}
