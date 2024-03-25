@@ -19,7 +19,7 @@ body {
     top: 15vh;
     left: 0;
     z-index: -1;
-}   
+}
 
 .RestaurantList {
     width: 75vw;
@@ -28,5 +28,4 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    
 }
