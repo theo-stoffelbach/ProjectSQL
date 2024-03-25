@@ -81,12 +81,6 @@ document.getElementById('comment-form').addEventListener('submit', function (eve
         .catch(error => console.error('Error:', error));
 });
 
-router.post('/api/comment', function (req, res) {
-    commentService.addComment(req.body.comment)
-        .then(result => res.json(result))
-        .catch(error => res.status(500).json({error: error.message}));
-});
-
 function printListLocalStorage() {
     const listCommand = JSON.parse(localStorage.getItem("mealsList"));
     console.log(listCommand)
