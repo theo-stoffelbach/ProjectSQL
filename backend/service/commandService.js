@@ -74,5 +74,20 @@ const editAnCommand = (command) => {
 };
 
 
-export {commandSelectById, insertAnCommand, insertDeliveryInCommand};
+const deleteCommand = (commandId) => {
+    return new Promise((resolve, reject) => {
+        const sql = 'DELETE FROM commands WHERE id_command = ?';
+
+        db.query(sql, [commandId], (error, results) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+};
+
+
+export {commandSelectById, insertAnCommand, insertDeliveryInCommand, deleteCommand};
 

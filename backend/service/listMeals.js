@@ -15,6 +15,20 @@ const insertListMeals = (meals, id_command) => {
     });
 }
 
+const deleteAllForeinKey = (id_command) => {
+    return new Promise((resolve, reject) => {
+        const sql = 'DELETE FROM list_meal WHERE id_command = ?';
+        db.query(sql, [id_command], (error, results) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+
+}
+
 const readListMeals = (id_command) => {
     return new Promise((resolve, reject) => {
         const sql = 'SELECT * FROM list_meal WHERE id_command = ?';
@@ -29,4 +43,4 @@ const readListMeals = (id_command) => {
 
 }
 
-export {insertListMeals, readListMeals};
+export {insertListMeals, readListMeals,deleteAllForeinKey};
