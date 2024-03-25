@@ -17,6 +17,7 @@ const getCookieByName = (name) => {
     }
     return result;
 }
+
 const insertAnCommand = (id_user, id_restaurant, adresse) => {
     return new Promise((resolve, reject) => {
         const sql = 'INSERT INTO commands (id_client, id_restaurant, delivery_adress) VALUES (?, ?, ?)';
@@ -29,6 +30,7 @@ const insertAnCommand = (id_user, id_restaurant, adresse) => {
         });
     });
 }
+
 
 const commandSelectById = (id_profil) => {
     return new Promise((resolve, reject) => {

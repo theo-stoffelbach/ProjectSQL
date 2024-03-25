@@ -13,7 +13,6 @@ const selectAllRestaurants = () => {
     });
 };
 
-
 const selectByIdRestaurant = (id_restaurant) => {
     return new Promise((resolve, reject) => {
         const sql = 'SELECT * FROM restaurant WHERE id_restaurant = ?';

@@ -1,10 +1,26 @@
-const cookie = document.cookie
-const profilName = document.getElementById('title');
-const userId = cookie.split(";")[0].split("=")[1];
+const getCookieByName = (name) => {
+    const cookie = document.cookie.split(";");
+    let result = null;
+    cookie.forEach((element) => {
+        if (element.includes(name)) {
+            console.log(element, 'element');
+            console.log("yes");
+            result = element.split("=")[1];
+            return element;
+        }
+    });
+    if (result === null) {
+        console.log("no");
+        return null;
+    }
+    return result;
+}
 
 const init = () => {
-    console.log
+    const userId = getCookieByName('userId');
+
     console.log(userId);
+
 
     fetch(`http://localhost:3000/api/user/profil/${userId}`)
         .then(response => {
@@ -13,8 +29,9 @@ const init = () => {
         })
         .then(data => {
             console.log(data)
+            
+            const profilName = document.getElementById('title');
             profilName.innerText = data.user.name;
-
 
             // Get the 'Historique' div
             const historiqueDiv = document.querySelector('.Historique');
@@ -44,7 +61,6 @@ const init = () => {
                 const etatP = document.createElement('p');
                 etatP.textContent = `Etat: ${command.command_state}`;
                 commandeDiv.appendChild(etatP);
-
 
 
                 historiqueDiv.appendChild(commandeDiv);

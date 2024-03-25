@@ -1,5 +1,6 @@
 import {createAnUser, selectUserAnUser, selectUserAnUserById} from "../service/userService.js";
 import {commandSelectById} from "../service/commandService.js";
+import {selectByIdRestaurant} from "../service/restaurantService.js";
 
 
 const loginController = (req, res) => {
@@ -56,12 +57,34 @@ const profilController = (req, res) => {
                 .then(data2 => {
                     result.command = [];
 
-                    for (let i = 0; i < data2.length; i++) {
-                        result.command.push(data2[i]);
-                    }
-                    res.status(200).send(result);
+                    const promises = data2.map(item => {
+                        return selectByIdRestaurant(item.id_restaurant)
+                            // .then(data => data.json())
+                            .then(dataRestaurant => {
+                                console.log(dataRestaurant[0].name, 'dataRestaurant[0].name')
+                                // console.log(dataRestaurant, 'dataRestaurant')
+                                // console.log(dataRestaurant.name, 'dataRestaurant.name')
+                                item.name = dataRestaurant[0].name; // Ajout de la propriété 'name' à chaque 'item'
+                                result.command.push(item);
+                                // console.log(item, 'item')
+                            })
+                            .catch(err => {
+                                console.log("error : ", err);
+                                res.status(400).send('Error to read restaurant');
+                            });
+                    });
+                    // console.log(result, 'result')
 
+                    Promise.all(promises)
+                        .then(() => {
+                            res.status(200).send(result);
+                        })
+                        .catch(err => {
+                            console.log("error : ", err);
+                            res.status(400).send('Error processing data');
+                        });
                 })
+
                 .catch(err => {
                     console.log("error : ", err);
                     res.status(400).send('Error to read command');
