@@ -1,11 +1,10 @@
 import {db} from '../config/db.js';
 
-const insertListMeals = (meals, id_restaurant) => {
+const insertListMeals = (meals, id_command) => {
 
-    //insert list of meals 1 by 1
     meals.forEach(id_meal => {
-        const sql = 'INSERT INTO list_meal (id_meal,id_restaurant) VALUES (?, ?)';
-        db.query(sql, [id_meal, id_restaurant], (error, results) => {
+        const sql = 'INSERT INTO list_meal (id_meal,id_command) VALUES (?, ?)';
+        return db.query(sql, [id_meal, id_command], (error, results) => {
             if (error) {
                 console.log(error);
                 return error;
@@ -16,4 +15,18 @@ const insertListMeals = (meals, id_restaurant) => {
     });
 }
 
-export {insertListMeals};
+const readListMeals = (id_command) => {
+    return new Promise((resolve, reject) => {
+        const sql = 'SELECT * FROM list_meal WHERE id_command = ?';
+        db.query(sql, [id_command], (error, results) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+
+}
+
+export {insertListMeals, readListMeals};

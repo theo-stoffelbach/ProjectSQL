@@ -1,9 +1,9 @@
 import {db} from '../config/db.js';
 
-const insertAnCommand = (id_user, id_restaurant, adress) => {
+const insertAnCommand = (id_user, id_restaurant, adresse) => {
     return new Promise((resolve, reject) => {
         const sql = 'INSERT INTO commands (id_client, id_restaurant, delivery_adress) VALUES (?, ?, ?)';
-        db.query(sql, [id_user, id_restaurant, adress], (error, results) => {
+        db.query(sql, [id_user, id_restaurant, adresse], (error, results) => {
             if (error) {
                 reject(error);
             } else {

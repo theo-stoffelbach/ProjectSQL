@@ -1,7 +1,8 @@
 const titleRestaurant = document.getElementById('title');
 const listMeals = document.getElementsByClassName('Ingredients')[0];
-const listLocalStorage = document.getElementById("listbuy")
-const passCommandButton = document.getElementById("buy")
+const listLocalStorage = document.getElementById("listbuy");
+const passCommandButton = document.getElementById("buy");
+const adressInput = document.getElementById("adressText");
 
 function createMealCard(meal, ingredients) {
     const div = document.createElement('div');
@@ -102,8 +103,11 @@ function resetLocalStorage() {
 function submitCommand() {
     const listCommnad = JSON.parse(localStorage.getItem("mealsList"));
     const restaurant = JSON.parse(localStorage.getItem("restaurant"));
+    const adressText = adressInput.value;
     const cookie = document.cookie
-    const clientId = Number.parseInt(cookie.split(";")[0].split("=")[1]);
+    console.log("cookie : ", cookie)
+    const clientId = Number.parseInt(cookie.split(";")[1].split("=")[1]);
+    console.log("clientId : ", clientId);
     let listIdCommand = [];
 
     listCommnad.forEach(meal => {
@@ -121,7 +125,7 @@ function submitCommand() {
         body: JSON.stringify({
             id_user: clientId,
             id_restaurant: restaurant.id,
-            adress: "test",
+            adress: adressText,
             meals: listIdCommand
         }),
     })
