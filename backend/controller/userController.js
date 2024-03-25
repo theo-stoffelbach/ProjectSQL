@@ -7,8 +7,6 @@ const loginController = (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    console.log("username : ", username, "password : ", password);
-
     selectUserAnUser({username: username, password: password})
         .then((test) => {
             console.log(test, 'test')
