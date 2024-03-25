@@ -61,3 +61,4 @@ getRestaurantList();
 
 // const card = createCardRestaurant('http://www.site.com', 'Restaurant Jorgay', '1 rue du restaurant', '12h-14h')
 // RestaurantList.appendChild(card);
+
