@@ -1,5 +1,22 @@
 import {db} from '../config/db.js';
 
+const getCookieByName = (name) => {
+    const cookie = document.cookie.split(";");
+    let result = null;
+    cookie.forEach((element) => {
+        if (element.includes(name)) {
+            console.log(element, 'element');
+            console.log("yes");
+            result = element.split("=")[1];
+            return element;
+        }
+    });
+    if (result === null) {
+        console.log("no");
+        return null;
+    }
+    return result;
+}
 const insertAnCommand = (id_user, id_restaurant, adresse) => {
     return new Promise((resolve, reject) => {
         const sql = 'INSERT INTO commands (id_client, id_restaurant, delivery_adress) VALUES (?, ?, ?)';

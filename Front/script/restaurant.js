@@ -4,6 +4,22 @@ const listLocalStorage = document.getElementById("listbuy");
 const passCommandButton = document.getElementById("buy");
 const adressInput = document.getElementById("adressText");
 
+const getCookieByName = (name) => {
+    let result = null;
+    document.cookie.split(";").forEach((element) => {
+        if (element.includes(name)) {
+            console.log(element, 'element');
+            console.log("yes");
+            result = element.split("=")[1];
+            return element;
+        }
+    });
+    if (result === null) {
+        return null;
+    }
+    return result;
+}
+
 function createMealCard(meal, ingredients) {
     const div = document.createElement('div');
     div.className = 'Ingredient';
@@ -104,18 +120,26 @@ function submitCommand() {
     const listCommnad = JSON.parse(localStorage.getItem("mealsList"));
     const restaurant = JSON.parse(localStorage.getItem("restaurant"));
     const adressText = adressInput.value;
-    const cookie = document.cookie
-    console.log("cookie : ", cookie)
-    const clientId = Number.parseInt(cookie.split(";")[1].split("=")[1]);
-    console.log("clientId : ", clientId);
-    let listIdCommand = [];
+    const userId = getCookieByName("userIdr");
+
+    
+    console.log("userId : ", userId);
+    if (adressText === "") {
+        alert("Please enter an adress");
+        return;
+    }
+    if (userId === null) {
+        alert("Please login or register to buy");
+        window.location.href = "login.html";
+        return;
+    }
 
     listCommnad.forEach(meal => {
         listIdCommand.push(meal.id_meal)
     })
 
     console.log("Command : ", listIdCommand);
-    console.log("clientId : ", clientId);
+    console.log("clientId : ", userId);
     console.log("restaurantId : ", restaurant.id);
     fetch("http://localhost:3000/api/command", {
         method: "POST",
