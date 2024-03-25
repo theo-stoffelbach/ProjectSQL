@@ -1,6 +1,37 @@
-import {commandSelectById, insertAnCommand} from "../service/commandService.js";
-import {insertListMeals, readListMeals} from "../service/listMeals.js";
+import {
+    commandSelectById,
+    deleteCommand,
+    insertAnCommand
+} from "../service/commandService.js";
+import {
+    deleteAllForeinKey,
+    insertListMeals,
+    readListMeals
+} from "../service/listMeals.js";
 
+
+const deleteCommandController = (req, res) => {
+    const id = req.params.id;
+
+    // deleteAllForeinKey
+    readListMeals(id)
+        .then((data) => {
+            console.log(data);
+            data.forEach((element) => {
+                deleteAllForeinKey(element.id_command);
+            });
+        });
+
+
+    deleteCommand(id)
+        .then((data) => {
+            res.status(200).send({data});
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+}
 
 const createCommand = (req, res) => {
     const id_user = req.body.id_user;
@@ -52,4 +83,4 @@ const readByIdUserAllCommand = (req, res) => {
         });
 }
 
-export {readByIdUserAllCommand, createCommand};
+export {readByIdUserAllCommand, createCommand, deleteCommandController};
