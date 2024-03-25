@@ -50,11 +50,6 @@ function getRestaurantList() {
         });
 }
 
-function resetLocalStorage() {
-    localStorage.removeItem('mealsList');
-}
-
-resetLocalStorage();
 getRestaurantList();
 
 // console.log(RestaurantList)

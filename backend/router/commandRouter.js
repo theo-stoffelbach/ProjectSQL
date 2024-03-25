@@ -1,14 +1,13 @@
 import express from 'express';
-import {
-    // readAllRestaurants
-} from "../controller/restaurantController.js";
+import {createCommand} from "../controller/commandController.js";
+
 const commandRouter = express.Router();
 
 commandRouter.get('/test', (req, res) => {
     res.send('Route GET sur / avec commandes');
 });
 
-// commandRouter.get('/', readAllRestaurants);
+commandRouter.post('/', createCommand);
 // commandRouter.post('/register', registerController);
 
 

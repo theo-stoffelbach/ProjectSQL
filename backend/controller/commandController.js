@@ -1,5 +1,4 @@
-import {commandSelectById} from "../service/restaurantService.js";
-import {insertAnCommand, insertDeliveryInCommand} from "../service/commandService.js";
+import {commandSelectById, insertAnCommand, insertDeliveryInCommand} from "../service/commandService.js";
 import {insertListMeals} from "../service/listMeals.js";
 
 
@@ -32,7 +31,6 @@ const createCommand = (req, res) => {
         });
 }
 
-// const readAllRestaurants = (req, res) => {
 const readByIdUserAllCommand = (req, res) => {
 
     commandSelectById()
@@ -48,4 +46,4 @@ const readByIdUserAllCommand = (req, res) => {
         });
 }
 
-export {readByIdUserAllCommand};
+export {readByIdUserAllCommand, createCommand};

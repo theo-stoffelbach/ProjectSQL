@@ -28,9 +28,9 @@ const validateLoginForm = (e) => {
     })
         .then(r => r.json())
         .then(response => {
-            createToken("userId", response.id, 1);
+            createToken("userId", response.id_client, 1);
             createToken("username", response.name, 1);
-            window.location.href = "http://localhost:5500/Front/Html/HomePage.html";
+            // window.location.href = "http://localhost:5500/Front/Html/HomePage.html";
         })
         .catch(error => {
             console.log("error : ", error);

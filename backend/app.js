@@ -2,6 +2,7 @@
 import express from 'express';
 import {userRouter} from './router/userRoute.js';
 import {restaurantRouter} from './router/restaurantRouter.js';
+import {commandRouter} from './router/commandRouter.js';
 import cors from 'cors';
 // import { connectionDB } from './service/userService.js';
 
@@ -19,6 +20,7 @@ app.use(express.urlencoded({extended: true}));
 
 // Later Inmplement Global Router
 app.use('/api/user/', userRouter);
+app.use('/api/command/', commandRouter);
 app.use('/api/restaurant/', restaurantRouter);
 
 app.listen(PORT, () => {
