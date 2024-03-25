@@ -14,10 +14,10 @@ const selectUserAnUser = (user) => {
     });
 };
 
-const selectUserAnUserById = (id) => {
+const selectUserAnUserById = (id_client) => {
     return new Promise((resolve, reject) => {
-        const sql = 'SELECT * FROM clients WHERE id = ?';
-        db.query(sql, [id], (error, results) => {
+        const sql = 'SELECT * FROM clients WHERE id_client = ?';
+        db.query(sql, [id_client], (error, results) => {
             if (error) {
                 reject(error);
             } else {
