@@ -12,25 +12,28 @@ import {
 
 const deleteCommandController = (req, res) => {
     const id = req.params.id;
+    console.log("data");
+    console.log(id);
 
     // deleteAllForeinKey
-    readListMeals(id)
+    const promess = readListMeals(id)
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             data.forEach((element) => {
                 deleteAllForeinKey(element.id_command);
             });
         });
 
-
-    deleteCommand(id)
-        .then((data) => {
-            res.status(200).send({data});
+    Promise.all([promess])
+        .then(() => {
+            deleteCommand(id)
+                .then((data) => {
+                    res.status(200).send({data});
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         })
-        .catch((error) => {
-            console.log(error);
-        });
-
 }
 
 const createCommand = (req, res) => {

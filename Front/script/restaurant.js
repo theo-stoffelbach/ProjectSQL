@@ -118,6 +118,7 @@ function resetLocalStorage() {
 
 function submitCommand() {
     const listCommnad = JSON.parse(localStorage.getItem("mealsList"));
+    let listIdCommand = [];
     const restaurant = JSON.parse(localStorage.getItem("restaurant"));
     const adressText = adressInput.value;
     const userId = getCookieByName("userId");
@@ -147,7 +148,7 @@ function submitCommand() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            id_user: clientId,
+            id_user: userId,
             id_restaurant: restaurant.id,
             adress: adressText,
             meals: listIdCommand

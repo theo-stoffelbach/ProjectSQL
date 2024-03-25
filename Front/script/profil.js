@@ -60,6 +60,13 @@ const init = () => {
                 // Add an event listener to the delete button
                 deleteButton.addEventListener('click', () => {
                     console.log('delete');
+                    console.log(command.id_command);
+                        fetch(`http://localhost:3000/api/command/${command.id_command}`, {
+                        method: 'DELETE'
+                    })
+                        .then(response => {
+                            window.location.reload();
+                        })
             })
 
                     // const dateP = document.createElement('p');
