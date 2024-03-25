@@ -28,7 +28,7 @@ const init = () => {
         })
         .then(data => {
             console.log(data)
-            
+
             const profilName = document.getElementById('title');
             profilName.innerText = data.user.name;
 
@@ -53,18 +53,28 @@ const init = () => {
                 prixP.textContent = `Adresse: ${command.delivery_adress}`;
                 commandeDiv.appendChild(prixP);
 
-                // const dateP = document.createElement('p');
-                // dateP.textContent = `Date: ${command.ordered_time}`;
-                // commandeDiv.appendChild(dateP);
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                commandeDiv.appendChild(deleteButton);
 
-                // const etatP = document.createElement('p');
-                // etatP.textContent = `Etat: ${command.command_state}`;
-                // commandeDiv.appendChild(etatP);
-
-
-                historiqueDiv.appendChild(commandeDiv);
+                // Add an event listener to the delete button
+                deleteButton.addEventListener('click', () => {
+                    console.log('delete');
             })
-        })
-}
+
+                    // const dateP = document.createElement('p');
+                    // dateP.textContent = `Date: ${command.ordered_time}`;
+                    // commandeDiv.appendChild(dateP);
+
+                    // const etatP = document.createElement('p');
+                    // etatP.textContent = `Etat: ${command.command_state}`;
+                    // commandeDiv.appendChild(etatP);
+
+
+                    historiqueDiv.appendChild(commandeDiv);
+                })
+            })
+        }
+
 
 init();
