@@ -10,30 +10,36 @@
 </head>
 
 <body>
-<header>
-    <h1 id="title">{Restaurant Name}</h1>
-</header>
-<div class="Ingredients">
-    <h1>Ingredients</h1>
-    
-    <!-- Create in JS (Restaurant.js)-->
-</div>
+    <header>
+        <h1 id="title">{Restaurant Name}</h1>
+    </header>
+    <div class="Ingredients">
+        <h1>Ingredients</h1>
 
-<form id="comment-form" method="POST">
-    <h2>Add a Comment</h2>
-    <textarea id="comment-input" placeholder="Your comment" style="width: 300px; height: 100px;"></textarea>
-    <button type="submit">Submit</button>
-</form>
+        <!-- Create in JS (Restaurant.js)-->
+        <ul id="listbuy">
+            <!--Generate with js-->
+        </ul>
 
-<div id="comments">
-    <h2>Comments</h2>
-    <div class="comment">
-        <div class="comment-content">
-            <p class="comment-text">This is a comment</p>
-            <p class="comment-author">Author: {Author}</p>
+        <button id="buy">passer commande</button>
+
+    </div>
+
+    <form id="comment-form" method="POST">
+        <h2>Add a Comment</h2>
+        <textarea id="comment-input" placeholder="Your comment" style="width: 300px; height: 100px;"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="comments">
+        <h2>Comments</h2>
+        <div class="comment">
+            <div class="comment-content">
+                <p class="comment-text">This is a comment</p>
+                <p class="comment-author">Author: {Author}</p>
+            </div>
         </div>
     </div>
-</div>
 
 
 
