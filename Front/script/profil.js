@@ -43,11 +43,11 @@ const init = () => {
                 commandeDiv.className = 'Commande';
 
                 const h1 = document.createElement('h1');
-                h1.textContent = `Restaurant: ${command.restaurant}`;
+                h1.textContent = `Restaurant: ${command.name}`;
                 commandeDiv.appendChild(h1);
 
                 const platP = document.createElement('p');
-                platP.textContent = `Plat: ${command.plat}`;
+                platP.textContent = `Plat: ${command.id_list_meal}`;
                 commandeDiv.appendChild(platP);
 
                 const prixP = document.createElement('p');
