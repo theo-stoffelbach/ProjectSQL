@@ -14,3 +14,5 @@ const insertListMeals = (meals, id_restaurant) => {
         });
     });
 }
+
+export {insertListMeals};

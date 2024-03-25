@@ -37,10 +37,20 @@ const init = () => {
             meals.forEach(meal => {
                 const card = createMealCard(meal.name, meal.ingredients);
                 listMeals.appendChild(card);
+
+                card.addEventListener('click', () => {
+                    addMealToList(meal);
+                });
             })
         });
-
     console.log(data)
+}
+
+const addMealToList = (meal) => {
+    let mealsList = JSON.parse(localStorage.getItem('mealsList')) || [];
+    mealsList.push(meal);
+    localStorage.setItem('mealsList', JSON.stringify(mealsList));
+    console.log('Meal added to list:', meal);
 }
 
 
