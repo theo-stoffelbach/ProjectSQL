@@ -25,6 +25,7 @@ function createMealCard(meal, ingredients) {
 
 const init = () => {
     const data = JSON.parse(localStorage.getItem('restaurant'));
+    
 
     fetch('http://localhost:3000/api/restaurant/' + data.id)
         .then(response => response.json())

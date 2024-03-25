@@ -8,6 +8,7 @@ const insertListMeals = (meals, id_restaurant) => {
         db.query(sql, [id_meal, id_restaurant], (error, results) => {
             if (error) {
                 console.log(error);
+                return error;
             } else {
                 return results;
             }

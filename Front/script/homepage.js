@@ -28,6 +28,7 @@ function createCardRestaurant(id, link, name, address) {
             name: name,
             address: address
         }));
+        window.location.href = 'restaurant.html';
     });
 
 // Ajout du <div> à l'intérieur du lien
@@ -35,6 +36,7 @@ function createCardRestaurant(id, link, name, address) {
 }
 
 function getRestaurantList() {
+    console.log("getRestaurantList");
     fetch('http://localhost:3000/api/restaurant/')
         .then(response => response.json())
         .then(data => {
@@ -48,6 +50,11 @@ function getRestaurantList() {
         });
 }
 
+function resetLocalStorage() {
+    localStorage.removeItem('mealsList');
+}
+
+resetLocalStorage();
 getRestaurantList();
 
 // console.log(RestaurantList)
